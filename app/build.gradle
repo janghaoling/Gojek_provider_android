@@ -1,0 +1,102 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'io.fabric'
+
+android {
+    compileSdkVersion 28
+    //Test
+    
+
+    defaultConfig {
+        applicationId "com.gox.provider"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 2
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+    }
+
+    buildTypes {
+
+        debug {
+            manifestPlaceholders = [crashlyticsEnabled: true]
+        }
+
+        release {
+            manifestPlaceholders = [crashlyticsEnabled: true]
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+           
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.31'
+    kapt 'com.android.databinding:compiler:3.1.4'
+    implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0-alpha02'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
+
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    //      Basic design support library
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    //      android dimen support
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+
+    /*      Glide       */
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+
+    /*      square image        */
+    implementation 'com.github.siyamed:android-shape-imageview:0.9.3@aar'
+
+    //      ViewPager Animation
+    implementation 'com.novoda:spritz:1.0.0'
+    implementation 'com.aurelhubert:ahbottomnavigation:2.3.4'
+
+    //      Facebook Login
+    implementation 'com.facebook.android:facebook-login:5.1.1'
+
+    //      Added dependent library modules into the Android app module.
+    implementation 'com.github.recruit-lifestyle:FloatingView:2.4.4'
+
+    implementation "org.permissionsdispatcher:permissionsdispatcher:4.3.0"
+    kapt "org.permissionsdispatcher:permissionsdispatcher-processor:4.3.0"
+
+    implementation 'com.github.GoodieBag:Pinview:v1.4'
+
+    implementation project(':base')
+    implementation project(':foodservice')
+    implementation project(':taxiservice')
+    implementation project(':xuberservice')
+    implementation project(':countrycodepicker')
+  //  implementation project(':cropperlibrary')
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+
+apply plugin: 'com.google.gms.google-services'

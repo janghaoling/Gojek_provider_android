@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".views.manage_documents.ManageDocumentsActivity">
+
+    <data>
+
+        <variable
+            name="manageDocumentsViewModel"
+            type="com.gox.partner.views.manage_documents.ManageDocumentsViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/layout_app_bar" />
+
+        <ExpandableListView
+            android:id="@+id/expandableList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/colorWhite"
+            android:dividerHeight=".1dp"
+            android:groupIndicator="@null"
+            android:scrollbars="none" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

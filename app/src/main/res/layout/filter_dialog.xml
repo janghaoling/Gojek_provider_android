@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="orderfragmentviewmodel"
+            type="com.gox.partner.views.order.OrderFragmentViewModel" />
+
+        <variable
+            name="filterServiceListAdapter"
+            type="com.gox.partner.views.adapters.FilterServiceListAdapter" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_background_color"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8sdp">
+
+            <TextView
+                style="@style/BoldText"
+                android:textColor="@color/colorBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/filter_by" />
+
+            <TextView
+                android:id="@+id/tvReset"
+                style="@style/MediumText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="@string/reset"
+                android:textColor="@color/colorAccent" />
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/servicelist_frghome_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adapter="@{filterServiceListAdapter}"
+            android:padding="@dimen/_8sdp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3"
+            tools:itemCount="3"
+            tools:listitem="@layout/filterservice_rowitem" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/apply_filter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_17sdp"
+            android:background="@drawable/custom_full_round_corner"
+            android:backgroundTint="@color/colorBasePrimary"
+            android:padding="@dimen/_5sdp"
+            android:text="@string/apply"
+            style="@style/MediumText"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_12sdp"
+            tools:targetApi="lollipop" />
+
+    </LinearLayout>
+
+</layout>
